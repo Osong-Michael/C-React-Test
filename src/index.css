@@ -1,23 +1,21 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 *,
 *::before,
 *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-white: #fff;
+    --select-border: #777;
+    --select-focus: dodgerblue;
+    --select-arrow: var(--select-focus);
 }
 
 body {
     background: #7CB9E8;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-:root {
-    --select-border: #777;
-    --select-focus: dodgerblue;
-    --select-arrow: var(--select-focus);
 }
 
 .products {
@@ -28,7 +26,6 @@ body {
 }
 
 .product {
-    color: white;
     padding: 12px;
     height: 150px;
 
@@ -52,7 +49,6 @@ body {
 
 
 .loading {
-    color: white;
     text-align: center;
     font-size: 18px;
     text-transform: capitalize;
@@ -65,7 +61,7 @@ body {
 /* Spining loading animation */
 .loader {
     margin: auto;
-    border: 2px solid #EAF0F6;
+    border: 2px solid var(--color-white);
     border-radius: 50%;
     border-top: 2px solid  var(--select-focus);
     width: 20px;
@@ -96,7 +92,7 @@ select::-ms-expand {
 .sort-div {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     margin-top: 50px;
 }
 
@@ -105,8 +101,7 @@ select::-ms-expand {
     display: flex;
     width: 30%;
     align-items: center;
-    justify-content: center;
-    color: white;
+    margin-right: 150px;
 }
 
 .select {
@@ -119,8 +114,8 @@ select::-ms-expand {
     font-size: 1.25rem;
     cursor: pointer;
     line-height: 1.1;
-    background-color: #fff;
-    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+    background-color: var(--color-white);
+    background-image: linear-gradient(to top, #f9f9f9, var(--color-white) 33%);
     display: grid;
     grid-template-areas: "select";
     align-items: center;
@@ -139,6 +134,10 @@ select,
     background-color: var(--select-arrow);
     clip-path: polygon(100% 0%, 0 0%, 50% 100%);
     justify-self: end;
+}
+
+:is(.product, .sort-div label, .loading ) {
+    color: var(--color-white);
 }
 
 

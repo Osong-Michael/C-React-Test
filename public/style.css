@@ -1,0 +1,16 @@
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1, .header-paragraph {
+    text-align: center;
+    color: #fff;
+}
+
+.ad-paragraph {
+    color: #fff;
+    margin-top: 20px;
+}

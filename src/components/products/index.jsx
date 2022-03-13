@@ -8,6 +8,8 @@ export const FETCHING_PRODUCTS = 'FETCHING_PRODUCTS';
 export const ADVANCE_PAGE = 'ADVANCE_PAGE';
 
 const Products = () => {
+    const [adId, setAdId] = useState(0);
+
     const productsReducer = (state, action) => {
         switch (action.type) {
           case ADD_PRODUCTS:
@@ -28,10 +30,12 @@ const Products = () => {
         }
     };
 
+    const incrementPage = () => setAdId(adId + 1);
+
     const [pager, pagerDispatch] = useReducer(pageReducer, { page: 0 });
     const [productData, productDispatch] = useReducer(productsReducer, { products: [], fetching: true, });
 
-    const [shoeEnd, setShowEnd] = useState(false);
+    const [showEnd, setShowEnd] = useState(false);
 
     const productEnd = () => {
         productDispatch({ type: FETCHING_PRODUCTS, fetching: false });
@@ -74,7 +78,7 @@ const Products = () => {
                     </div>
                 </label>
             </div>
-            <div className="products">
+            <div className="products" id='product-div'>
                 {sortedProducts.map(product => (<Product key={Math.random()} {...product} />))}
             </div>
             {productData.fetching && (
@@ -83,7 +87,7 @@ const Products = () => {
                     <div className="loader"></div>
                 </div>
             )}
-            {shoeEnd && (
+            {showEnd && (
                 <div className="loading">
                 <p>~ end of catalogue ~</p>
             </div>
